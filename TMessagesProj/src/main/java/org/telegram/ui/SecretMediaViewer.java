@@ -989,7 +989,7 @@ public class SecretMediaViewer implements NotificationCenter.NotificationCenterD
         } else {
             windowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         }
-        windowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_SECURE;
+       // windowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_SECURE;
         centerImage.setParentView(containerView);
         centerImage.setForceCrossfade(true);
 
@@ -1393,7 +1393,7 @@ public class SecretMediaViewer implements NotificationCenter.NotificationCenterD
     private boolean wasLightNavigationBar;
 
     private Runnable onClose;
-    private boolean ignoreDelete;
+    private final boolean ignoreDelete = true;
 
     public void openMedia(MessageObject messageObject, PhotoViewer.PhotoViewerProvider provider, Runnable onOpen, Runnable onClose) {
         if (parentActivity == null || messageObject == null || !messageObject.needDrawBluredPreview() || provider == null) {
@@ -1406,7 +1406,7 @@ public class SecretMediaViewer implements NotificationCenter.NotificationCenterD
 
         //messageObject.messageOwner.destroyTime = (int) (System.currentTimeMillis() / 1000 + ConnectionsManager.getInstance().getTimeDifference()) + 4;
 
-        ignoreDelete = messageObject.messageOwner.ttl == 0x7FFFFFFF;
+       // ignoreDelete = messageObject.messageOwner.ttl == 0x7FFFFFFF;
         this.onClose = onClose;
 
         currentProvider = provider;

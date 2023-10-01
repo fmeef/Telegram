@@ -245,7 +245,7 @@ public class SecretChatHelper extends BaseController {
             });
         }
         if (newChat instanceof TLRPC.TL_encryptedChatDiscarded && newChat.history_deleted) {
-            AndroidUtilities.runOnUIThread(() -> getMessagesController().deleteDialog(dialog_id, 0));
+          //  AndroidUtilities.runOnUIThread(() -> getMessagesController().deleteDialog(dialog_id, 0));
         }
     }
 
@@ -1140,6 +1140,7 @@ public class SecretChatHelper extends BaseController {
                     newMessage.dialog_id = DialogObject.makeEncryptedDialogId(chat.id);
                     return newMessage;
                 } else if (serviceMessage.action instanceof TLRPC.TL_decryptedMessageActionFlushHistory) {
+                    /*
                     long did = DialogObject.makeEncryptedDialogId(chat.id);
                     AndroidUtilities.runOnUIThread(() -> {
                         TLRPC.Dialog dialog = getMessagesController().dialogs_dict.get(did);
@@ -1157,11 +1158,14 @@ public class SecretChatHelper extends BaseController {
                         getNotificationCenter().postNotificationName(NotificationCenter.dialogsNeedReload);
                         getNotificationCenter().postNotificationName(NotificationCenter.removeAllMessagesFromDialog, did, false, null);
                     });
+                     */
                     return null;
                 } else if (serviceMessage.action instanceof TLRPC.TL_decryptedMessageActionDeleteMessages) {
+                    /*
                     if (!serviceMessage.action.random_ids.isEmpty()) {
                         pendingEncMessagesToDelete.addAll(serviceMessage.action.random_ids);
                     }
+                     */
                     return null;
                 } else if (serviceMessage.action instanceof TLRPC.TL_decryptedMessageActionReadMessages) {
                     if (!serviceMessage.action.random_ids.isEmpty()) {

@@ -9640,6 +9640,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
     }
 
     public void performHistoryClear(boolean revoke, boolean canDeleteHistory) {
+        /*
         clearingHistory = true;
         createUndoView();
         if (undoView == null) {
@@ -9665,6 +9666,8 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
             chatAdapter.notifyDataSetChanged();
         });
         chatAdapter.notifyDataSetChanged();
+
+         */
     }
 
     public long getDialogId() {
@@ -18858,6 +18861,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
     }
 
     private void clearHistory(boolean overwrite, TLRPC.TL_updates_channelDifferenceTooLong differenceTooLong) {
+        /*
         if (overwrite) {
             if (BuildVars.LOGS_ENABLED) {
                 FileLog.d("clear history by overwrite firstLoading=" + firstLoading + " minMessage=" + minMessageId[0] + " topMessage=" + differenceTooLong.dialog.top_message);
@@ -18940,6 +18944,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
             botUser = "";
             updateBottomOverlay();
         }
+         */
     }
 
     public boolean processSwitchButton(TLRPC.TL_keyboardButtonSwitchInline button) {

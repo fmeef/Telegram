@@ -16590,7 +16590,7 @@ public class MessagesController extends BaseController implements NotificationCe
                     getNotificationCenter().postNotificationName(NotificationCenter.messagesReadContent, key, value);
                 }
             }
-            if (deletedMessagesFinal != null) {
+            if (deletedMessagesFinal != null && false) {
                 for (int a = 0, size = deletedMessagesFinal.size(); a < size; a++) {
                     long dialogId = deletedMessagesFinal.keyAt(a);
                     ArrayList<Integer> arrayList = deletedMessagesFinal.valueAt(a);
@@ -16628,7 +16628,7 @@ public class MessagesController extends BaseController implements NotificationCe
                 }
                 getNotificationsController().removeDeletedMessagesFromNotifications(deletedMessagesFinal, false);
             }
-            if (scheduledDeletedMessagesFinal != null) {
+            if (scheduledDeletedMessagesFinal != null && false) {
                 for (int a = 0, size = scheduledDeletedMessagesFinal.size(); a < size; a++) {
                     long key = scheduledDeletedMessagesFinal.keyAt(a);
                     ArrayList<Integer> arrayList = scheduledDeletedMessagesFinal.valueAt(a);
@@ -16639,7 +16639,7 @@ public class MessagesController extends BaseController implements NotificationCe
                     getNotificationCenter().postNotificationName(NotificationCenter.messagesDeleted, arrayList, DialogObject.isChatDialog(key) && ChatObject.isChannel(getChat(-key)) ? -key : 0, true);
                 }
             }
-            if (clearHistoryMessagesFinal != null) {
+            if (clearHistoryMessagesFinal != null && false) {
                 for (int a = 0, size = clearHistoryMessagesFinal.size(); a < size; a++) {
                     long key = clearHistoryMessagesFinal.keyAt(a);
                     int id = clearHistoryMessagesFinal.valueAt(a);
@@ -16657,6 +16657,7 @@ public class MessagesController extends BaseController implements NotificationCe
                     }
                 }
                 getNotificationsController().removeDeletedHisoryFromNotifications(clearHistoryMessagesFinal);
+
             }
             if (updateMask != 0) {
                 getNotificationCenter().postNotificationName(NotificationCenter.updateInterfaces, updateMask);
@@ -16689,7 +16690,7 @@ public class MessagesController extends BaseController implements NotificationCe
                 getMessagesStorage().markMessagesContentAsRead(key, arrayList, currentTime2, markContentAsReadMessagesDate);
             }
         }
-        if (deletedMessages != null) {
+        if (deletedMessages != null && false) {
             for (int a = 0, size = deletedMessages.size(); a < size; a++) {
                 long key = deletedMessages.keyAt(a);
                 ArrayList<Integer> arrayList = deletedMessages.valueAt(a);
@@ -16700,14 +16701,14 @@ public class MessagesController extends BaseController implements NotificationCe
 
             }
         }
-        if (scheduledDeletedMessages != null) {
+        if (scheduledDeletedMessages != null && false) {
             for (int a = 0, size = scheduledDeletedMessages.size(); a < size; a++) {
                 long key = scheduledDeletedMessages.keyAt(a);
                 ArrayList<Integer> arrayList = scheduledDeletedMessages.valueAt(a);
                 getMessagesStorage().markMessagesAsDeleted(key, arrayList, true, false, true);
             }
         }
-        if (clearHistoryMessages != null) {
+        if (clearHistoryMessages != null && false) {
             for (int a = 0, size = clearHistoryMessages.size(); a < size; a++) {
                 long key = clearHistoryMessages.keyAt(a);
                 int id = clearHistoryMessages.valueAt(a);

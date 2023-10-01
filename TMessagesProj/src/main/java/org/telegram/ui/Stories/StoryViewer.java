@@ -87,7 +87,7 @@ public class StoryViewer implements NotificationCenter.NotificationCenterDelegat
     public boolean foundViewToClose = false;
 
     public int allowScreenshotsCounter;
-    public boolean allowScreenshots = true;
+    public final boolean allowScreenshots = true;
     public static ArrayList<StoryViewer> globalInstances = new ArrayList<>();
 
     BaseFragment fragment;
@@ -2411,7 +2411,7 @@ public class StoryViewer implements NotificationCenter.NotificationCenterDelegat
             return;
         }
         if (this.allowScreenshots != allowScreenshots) {
-            this.allowScreenshots = allowScreenshots;
+            //this.allowScreenshots = allowScreenshots;
 
             if (surfaceView != null) {
                 surfaceView.setSecure(!allowScreenshots);
@@ -2421,14 +2421,14 @@ public class StoryViewer implements NotificationCenter.NotificationCenterDelegat
                     if (allowScreenshots) {
                         fragment.getParentActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
                     } else {
-                        fragment.getParentActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+                        //fragment.getParentActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
                     }
                 }
             } else {
                 if (allowScreenshots) {
                     windowLayoutParams.flags &= ~WindowManager.LayoutParams.FLAG_SECURE;
                 } else {
-                    windowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_SECURE;
+                  //  windowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_SECURE;
                 }
                 try {
                     windowManager.updateViewLayout(windowView, windowLayoutParams);
